@@ -11,6 +11,7 @@ interface BoxProps {
     flex?: number;
     alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch';
     justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around';
+    flexDirection?: 'row' | 'column';
 }
 
 const StyledBox = styled.View<BoxProps>`
@@ -22,6 +23,7 @@ const StyledBox = styled.View<BoxProps>`
   ${({ flex }) => flex && `flex: ${flex}`};
   ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
   ${({ justifyContent }) => justifyContent && `justify-content: ${justifyContent}`};
+  flex-direction: ${({ flexDirection }) => flexDirection || 'column'};
 `;
 
 const Box: React.FC<BoxProps> = ({ children, ...props }) => {

@@ -16,30 +16,29 @@ import {
     Box,
     Text,
     Pressable,
-    SafeAreaView
 } from 'src/components';
+import { SafeAreaView } from 'react-native';
 import { Home, Search, Star } from 'src/icons';
-import { SearchList, WishList } from 'src/screens';
-import { palette } from 'src/theme';
+import { MovieCarousels, WishList } from 'src/screens';
 import { MainStackParamList } from 'src/types/navigation';
 
 const TAB_ICONS = (
     isFocused: boolean,
     size = 24,
 ) => ({
-    SearchList: (
+    MovieCarousels: (
         <Home
             size={size}
             selected={isFocused}
-            color={palette.primary}
+            color={'black'}
         />
     ),
-    Favorites: (
+    WishList: (
         <Star
             size={size}
             selected={isFocused}
             disabled={false}
-            color={palette.primary}
+            color={'black'}
         />
     )
 });
@@ -66,8 +65,8 @@ export default observer(function ({ route }: MainTabProps) {
             screenOptions={{ headerShown: false }}
         >
             <Tab.Screen
-                name="SearchList"
-                component={SearchList}
+                name="MovieCarousels"
+                component={MovieCarousels}
             />
             <Tab.Screen
                 name="WishList"

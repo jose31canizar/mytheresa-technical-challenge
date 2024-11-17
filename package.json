@@ -37,6 +37,8 @@
     "mobx-state-tree": "^6.0.1",
     "react": "18.3.1",
     "react-native": "0.76.1",
+    "react-native-dotenv": "^3.4.11",
+    "react-native-fast-image": "^8.6.3",
     "react-native-flash-message": "^0.4.2",
     "react-native-gesture-handler": "^2.21.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
@@ -44,6 +46,7 @@
     "react-native-safe-area-context": "^4.14.0",
     "react-native-screens": "^4.1.0",
     "react-native-svg": "^15.9.0",
+    "reactotron-react-native": "^5.1.10",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
