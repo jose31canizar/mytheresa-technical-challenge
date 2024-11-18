@@ -16,8 +16,8 @@ import {
     Box,
     Text,
     Pressable,
+    SafeAreaView,
 } from 'src/components';
-import { SafeAreaView } from 'react-native';
 import { Home, Search, Star } from 'src/icons';
 import { MovieCarousels, WishList } from 'src/screens';
 import { MainStackParamList } from 'src/types/navigation';
@@ -110,6 +110,8 @@ const TabItem = observer(function ({
     return (
         <Pressable
             onPress={onPress}
+            alignItems="center"
+            justifyContent="center"
         >
             {
                 TAB_ICONS(isFocused)[
@@ -124,11 +126,8 @@ const TabItem = observer(function ({
 function TabBar({ state, descriptors, navigation }: TabbarProps) {
     return (
         <SafeAreaView
-            edges={['bottom']}
-            marginBottom="m"
-            marginTop="l"
             flexDirection="row"
-            alignItems="center"
+            backgroundColor="white"
             justifyContent="space-around"
         >
             <TabItem

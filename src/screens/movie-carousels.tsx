@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { ActivityIndicator, ScrollView } from 'react-native';
+import { useContext, useEffect, useState } from 'react';
+import { ActivityIndicator, RefreshControl, ScrollView } from 'react-native';
 import { Text, MovieCard, Box } from 'src/components';
 import { FlashList } from '@shopify/flash-list';
 import {
@@ -7,6 +7,10 @@ import {
 } from '@env';
 import { NavigationProp } from '@react-navigation/native';
 import API from 'src/api';
+import { StoreContext } from 'src/context';
+import { observer } from 'mobx-react';
+
+const keyExtractor = (item: Movie) => item.id.toString();
 
 type Movie = {
     id: number;
@@ -14,40 +18,18 @@ type Movie = {
     poster_path: string;
 }
 
-export default function MovieCarousels({ navigation }: { navigation: NavigationProp<any> }) {
-
-
-    const [nowPlaying, setNowPlaying] = useState<Movie[]>([]);
-    const [popular, setPopular] = useState<Movie[]>([]);
-    const [upcoming, setUpcoming] = useState<Movie[]>([]);
+export default observer(function MovieCarousels({ navigation }: { navigation: NavigationProp<any> }) {
+    const { store: RootStore } = useContext(StoreContext);
     const [loading, setLoading] = useState(true);
 
-
     useEffect(() => {
-        const fetchMovies = async () => {
-            try {
-                const [nowPlayingRes, popularRes, upcomingRes] = await Promise.all([
-                    API.getMovies({ path: 'now_playing' }),
-                    API.getMovies({ path: 'popular' }),
-                    API.getMovies({ path: 'upcoming' })
-                ]);
-
-
-                setNowPlaying(nowPlayingRes.results);
-                setPopular(popularRes.results);
-                setUpcoming(upcomingRes.results);
-            } catch (error) {
-                console.error('Error fetching movies:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
+        async function fetchMovies() {
+            setLoading(true);
+            await RootStore.movie.fetchAllMovies(['now_playing', 'popular', 'upcoming']);
+            setLoading(false);
+        }
         fetchMovies();
     }, []);
-
-
-
 
     if (loading) {
         return (
@@ -61,52 +43,71 @@ export default function MovieCarousels({ navigation }: { navigation: NavigationP
         navigation.navigate('MovieDetail', { movieId: movieId });
     }
 
+    const onRefresh = () => {
+        RootStore.movie.fetchAllMovies(['now_playing', 'popular', 'upcoming']);
+    }
+
+    const renderItem = ({ item }: { item: Movie }) => {
+        return (
+            <MovieCard
+                posterPath={item.poster_path}
+                onPress={() => onMoviePress(item.id)}
+            />
+        );
+    }
+
+
     return (
-        <ScrollView>
-            <Box flex={1} >
-                <Text marginBottom={16}>Now Playing</Text>
+        <ScrollView
+            refreshControl={
+                <RefreshControl
+                    refreshing={loading}
+                    onRefresh={onRefresh}
+                />
+            }
+        >
+            <Box flex={1} backgroundColor='white' >
+                <Text fontSize={24}
+                    fontWeight="bold"
+                    color="#333"
+                    textAlign="center"
+                    marginTop={16} marginBottom={16}>Now Playing</Text>
                 <FlashList
                     horizontal
                     showsHorizontalScrollIndicator={false}
-                    data={nowPlaying}
-                    renderItem={({ item }) => (
-                        <MovieCard
-                            posterPath={item.poster_path}
-                            onPress={() => onMoviePress(item.id)}
-                        />
-                    )}
+                    data={[...RootStore.movie.nowPlaying]}
+                    renderItem={renderItem}
                     estimatedItemSize={225}
-                    keyExtractor={item => item.id.toString()}
+                    keyExtractor={keyExtractor}
+                    ListEmptyComponent={<Text>No movies found</Text>}
                 />
-
-                <Text marginVertical={16}>Popular</Text>
+                <Text fontSize={24}
+                    fontWeight="bold"
+                    color="#333"
+                    textAlign="center"
+                    marginTop={16} marginBottom={16}>Popular</Text>
                 <FlashList
                     horizontal
                     showsHorizontalScrollIndicator={false}
-                    data={popular}
-                    renderItem={({ item }) => (
-                        <MovieCard
-                            posterPath={item.poster_path}
-                            onPress={() => onMoviePress(item.id)}
-                        />
-                    )}
-                    keyExtractor={item => item.id.toString()}
+                    data={[...RootStore.movie.popular]}
+                    renderItem={renderItem}
+                    keyExtractor={keyExtractor}
+                    ListEmptyComponent={<Text>No movies found</Text>}
                 />
 
-                <Text marginBottom={16}>Upcoming</Text>
+                <Text fontSize={24}
+                    fontWeight="bold"
+                    color="#333"
+                    textAlign="center"
+                    marginTop={16} marginBottom={16}>Upcoming</Text>
                 <FlashList
                     horizontal
                     showsHorizontalScrollIndicator={false}
-                    data={upcoming}
-                    renderItem={({ item }) => (
-                        <MovieCard
-                            posterPath={item.poster_path}
-                            onPress={() => onMoviePress(item.id)}
-                        />
-                    )}
-                    keyExtractor={item => item.id.toString()}
-                />
+                    data={RootStore.movie.upcoming}
+                    renderItem={renderItem}
+                    keyExtractor={keyExtractor}
+                    ListEmptyComponent={<Text>No movies found</Text>} />
             </Box>
         </ScrollView>
     );
-}
+});

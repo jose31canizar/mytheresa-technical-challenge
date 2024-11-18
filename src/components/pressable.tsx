@@ -7,6 +7,9 @@ interface CustomPressableProps extends PressableProps {
 }
 
 const StyledPressable = styled(RNPressable)`
+    flex-direction: ${({ flexDirection }: { flexDirection: string }) => flexDirection};
+    align-items: ${({ alignItems }: { alignItems: string }) => alignItems};
+    justify-content: ${({ justifyContent }: { justifyContent: string }) => justifyContent};
     opacity: ${({ pressed }) => pressed ? 0.7 : 1};
     transition: opacity 0.2s;
 `;

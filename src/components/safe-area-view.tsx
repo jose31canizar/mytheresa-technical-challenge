@@ -1,20 +1,44 @@
-import React from 'react';
-import styled from 'styled-components/native';
-import { SafeAreaView } from 'react-native';
+import React, { PropsWithChildren, useCallback } from 'react';
+import { ViewProps } from 'react-native';
+import { Edge, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Box } from './index';
 
-const StyledSafeAreaView = styled(SafeAreaView)`
-    flex: 1;
-    background-color: #FFFFFF;
-`;
+
 
 interface SafeAreaViewProps {
-    children: React.ReactNode;
+    edges?: Edge[] | undefined;
 }
 
-export default function CustomSafeAreaView({ children }: SafeAreaViewProps) {
+const SafeAreaView = ({ children, edges, ...restProps }: PropsWithChildren<SafeAreaViewProps>) => {
+    const insets = useSafeAreaInsets();
+    // @ts-ignore
+
+    const edgesStyle = useCallback(() => {
+        if (edges.includes('bottom')) {
+            return {
+                paddingBottom: insets.bottom === 0 ? 16 : insets.bottom,
+            };
+        } else {
+            return { paddingTop: insets.top };
+        }
+    }, [edges, insets]);
+
     return (
-        <StyledSafeAreaView>
+        <Box
+            {...restProps}
+            style={[
+                !edges || (edges.includes('top') && edges.includes('bottom'))
+                    ? {
+                        paddingTop: insets.top,
+                        paddingBottom:
+                            insets.bottom === 0 ? 16 : insets.bottom,
+                    }
+                    : edgesStyle(),
+            ]}
+        >
             {children}
-        </StyledSafeAreaView>
+        </Box>
     );
-}
+};
+
+export default SafeAreaView;
