@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { ViewStyle } from 'react-native';
 import styled from 'styled-components/native';
 
-interface BoxProps {
-  children?: React.ReactNode;
+export interface BoxProps extends PropsWithChildren {
   padding?: number;
   margin?: number;
   backgroundColor?: string;
@@ -12,13 +11,14 @@ interface BoxProps {
   flex?: number;
   alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch';
   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around';
-  marginTop?: string;
-  marginBottom?: string;
-  paddingTop?: string;
-  paddingBottom?: string;
+  marginTop?: number;
+  marginBottom?: number;
+  paddingTop?: number;
+  paddingBottom?: number;
   flexDirection?: 'row' | 'column';
-  paddingLeft?: string;
-  paddingRight?: string;
+  paddingLeft?: number;
+  paddingRight?: number;
+  borderRadius?: number;
   style?: ViewStyle;
 }
 

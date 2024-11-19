@@ -8,6 +8,18 @@ import {
 import {storage} from './mmk-store';
 import API from 'src/api';
 
+export interface MovieDTO {
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  vote_average: number;
+}
+
 export const Movie = types.model({
   id: types.number,
   original_language: types.string,

@@ -39,19 +39,19 @@ export default observer(function MovieCarousels({ navigation }: { navigation: Na
         );
     }
 
-    const onMoviePress = (movieId: number) => {
-        navigation.navigate('MovieDetail', { movieId: movieId });
+    const onMoviePress = (movieId: number, fontFamily: string) => {
+        navigation.navigate('MovieDetail', { movieId: movieId, fontFamily: fontFamily });
     }
 
     const onRefresh = () => {
         RootStore.movie.fetchAllMovies(['now_playing', 'popular', 'upcoming']);
     }
 
-    const renderItem = ({ item }: { item: Movie }) => {
+    const renderItem = ({ item, fontFamily }: { item: Movie, fontFamily: string }) => {
         return (
             <MovieCard
                 posterPath={item.poster_path}
-                onPress={() => onMoviePress(item.id)}
+                onPress={() => onMoviePress(item.id, fontFamily)}
             />
         );
     }
@@ -71,12 +71,13 @@ export default observer(function MovieCarousels({ navigation }: { navigation: Na
                     fontWeight="bold"
                     color="#333"
                     textAlign="center"
+                    fontFamily="Jost-ExtraBoldItalic"
                     marginTop={16} marginBottom={16}>Now Playing</Text>
                 <FlashList
                     horizontal
                     showsHorizontalScrollIndicator={false}
                     data={[...RootStore.movie.nowPlaying]}
-                    renderItem={renderItem}
+                    renderItem={({ item }) => renderItem({ item, fontFamily: "Jost-ExtraBoldItalic" })}
                     estimatedItemSize={225}
                     keyExtractor={keyExtractor}
                     ListEmptyComponent={<Text>No movies found</Text>}
@@ -85,12 +86,13 @@ export default observer(function MovieCarousels({ navigation }: { navigation: Na
                     fontWeight="bold"
                     color="#333"
                     textAlign="center"
+                    fontFamily="BebasNeue-Regular"
                     marginTop={16} marginBottom={16}>Popular</Text>
                 <FlashList
                     horizontal
                     showsHorizontalScrollIndicator={false}
                     data={[...RootStore.movie.popular]}
-                    renderItem={renderItem}
+                    renderItem={({ item }) => renderItem({ item, fontFamily: "BebasNeue-Regular" })}
                     keyExtractor={keyExtractor}
                     ListEmptyComponent={<Text>No movies found</Text>}
                 />
@@ -99,12 +101,13 @@ export default observer(function MovieCarousels({ navigation }: { navigation: Na
                     fontWeight="bold"
                     color="#333"
                     textAlign="center"
+                    fontFamily="Anton-Regular"
                     marginTop={16} marginBottom={16}>Upcoming</Text>
                 <FlashList
                     horizontal
                     showsHorizontalScrollIndicator={false}
                     data={RootStore.movie.upcoming}
-                    renderItem={renderItem}
+                    renderItem={({ item }) => renderItem({ item, fontFamily: "Anton-Regular" })}
                     keyExtractor={keyExtractor}
                     ListEmptyComponent={<Text>No movies found</Text>} />
             </Box>

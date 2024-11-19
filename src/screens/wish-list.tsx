@@ -3,10 +3,11 @@ import { useContext, useMemo } from 'react';
 import { Image, ScrollView } from 'react-native';
 import { Box, Text, SafeAreaView, Pressable } from 'src/components';
 import { StoreContext } from 'src/context';
+import { MovieDTO } from 'src/store/movie-store';
 
 export default observer(function WishList() {
     const { store: RootStore } = useContext(StoreContext);
-    const favorites = useMemo(() => Array.from(RootStore.movie.favorites.values()),
+    const favorites = useMemo(() => Array.from(RootStore.movie.favorites.values()) as MovieDTO[],
         [RootStore.movie.favorites.size])
 
 
@@ -32,7 +33,7 @@ export default observer(function WishList() {
                 </Box>
             ) : (
                 <ScrollView>
-                    {Array.from(RootStore.movie.favorites.values()).map(movie => (
+                    {favorites.map(movie => (
                         <Box
                             key={movie.id}
                             flexDirection="row"

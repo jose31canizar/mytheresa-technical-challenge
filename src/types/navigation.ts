@@ -7,5 +7,5 @@ export type HomeTabParamList = {
 
 export type MainStackParamList = {
   HomeTab: NavigatorScreenParams<HomeTabParamList>;
-  MovieDetail: {title: string};
+  MovieDetail: {title?: string; movieId: number; fontFamily: string};
 };

@@ -12,9 +12,13 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		209E361CEB2F4460885B0AF3 /* Cinzel-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 277FBEFBEDE14A7997FEBC18 /* Cinzel-VariableFont_wght.ttf */; };
 		28931BBFF219D773B4AE33CE /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		448C76CC409D46B4A731AEAE /* Anton-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A151AC87BFE4A548B4704BE /* Anton-Regular.ttf */; };
+		4C0913A25DDE4F81A80F9588 /* BebasNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47647C3DB9994D59A7A73987 /* BebasNeue-Regular.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-mytheresaTechnicalChallenge-mytheresaTechnicalChallengeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-mytheresaTechnicalChallenge-mytheresaTechnicalChallengeTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		ACED2555622441269672E4A6 /* Jost-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73FE449312D141178135525A /* Jost-ExtraBoldItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +35,7 @@
 		00E356EE1AD99517003FC87E /* mytheresaTechnicalChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mytheresaTechnicalChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* mytheresaTechnicalChallengeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mytheresaTechnicalChallengeTests.m; sourceTree = "<group>"; };
+		0A151AC87BFE4A548B4704BE /* Anton-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Anton-Regular.ttf"; path = "../assets/fonts/Anton-Regular.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* mytheresaTechnicalChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mytheresaTechnicalChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = mytheresaTechnicalChallenge/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = mytheresaTechnicalChallenge/AppDelegate.mm; sourceTree = "<group>"; };
@@ -39,10 +44,13 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = mytheresaTechnicalChallenge/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = mytheresaTechnicalChallenge/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-mytheresaTechnicalChallenge-mytheresaTechnicalChallengeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mytheresaTechnicalChallenge-mytheresaTechnicalChallengeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		277FBEFBEDE14A7997FEBC18 /* Cinzel-VariableFont_wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Cinzel-VariableFont_wght.ttf"; path = "../assets/fonts/Cinzel-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-mytheresaTechnicalChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mytheresaTechnicalChallenge.debug.xcconfig"; path = "Target Support Files/Pods-mytheresaTechnicalChallenge/Pods-mytheresaTechnicalChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		47647C3DB9994D59A7A73987 /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BebasNeue-Regular.ttf"; path = "../assets/fonts/BebasNeue-Regular.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-mytheresaTechnicalChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mytheresaTechnicalChallenge.release.xcconfig"; path = "Target Support Files/Pods-mytheresaTechnicalChallenge/Pods-mytheresaTechnicalChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-mytheresaTechnicalChallenge-mytheresaTechnicalChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mytheresaTechnicalChallenge-mytheresaTechnicalChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-mytheresaTechnicalChallenge-mytheresaTechnicalChallengeTests/Pods-mytheresaTechnicalChallenge-mytheresaTechnicalChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-mytheresaTechnicalChallenge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mytheresaTechnicalChallenge.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73FE449312D141178135525A /* Jost-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Jost-ExtraBoldItalic.ttf"; path = "../assets/fonts/Jost-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = mytheresaTechnicalChallenge/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-mytheresaTechnicalChallenge-mytheresaTechnicalChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mytheresaTechnicalChallenge-mytheresaTechnicalChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-mytheresaTechnicalChallenge-mytheresaTechnicalChallengeTests/Pods-mytheresaTechnicalChallenge-mytheresaTechnicalChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -125,6 +133,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				C437A473F85A4B63BF22CF3F /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -149,6 +158,18 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-mytheresaTechnicalChallenge-mytheresaTechnicalChallengeTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C437A473F85A4B63BF22CF3F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0A151AC87BFE4A548B4704BE /* Anton-Regular.ttf */,
+				47647C3DB9994D59A7A73987 /* BebasNeue-Regular.ttf */,
+				277FBEFBEDE14A7997FEBC18 /* Cinzel-VariableFont_wght.ttf */,
+				73FE449312D141178135525A /* Jost-ExtraBoldItalic.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +268,10 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				28931BBFF219D773B4AE33CE /* PrivacyInfo.xcprivacy in Resources */,
+				448C76CC409D46B4A731AEAE /* Anton-Regular.ttf in Resources */,
+				4C0913A25DDE4F81A80F9588 /* BebasNeue-Regular.ttf in Resources */,
+				209E361CEB2F4460885B0AF3 /* Cinzel-VariableFont_wght.ttf in Resources */,
+				ACED2555622441269672E4A6 /* Jost-ExtraBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,43 +1,27 @@
-import React, { PropsWithChildren, useCallback } from 'react';
-import { ViewProps } from 'react-native';
+import React, { PropsWithChildren } from 'react';
 import { Edge, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Box } from './index';
+import { BoxProps } from './box';
 
 
 
-interface SafeAreaViewProps {
+interface SafeAreaViewProps extends BoxProps {
     edges?: Edge[] | undefined;
 }
 
 const SafeAreaView = ({ children, edges, ...restProps }: PropsWithChildren<SafeAreaViewProps>) => {
     const insets = useSafeAreaInsets();
-    // @ts-ignore
-
-    const edgesStyle = useCallback(() => {
-        if (edges.includes('bottom')) {
-            return {
-                paddingBottom: insets.bottom === 0 ? 16 : insets.bottom,
-            };
-        } else {
-            return { paddingTop: insets.top };
-        }
-    }, [edges, insets]);
 
     return (
         <Box
             {...restProps}
-            style={[
-                !edges || (edges.includes('top') && edges.includes('bottom'))
-                    ? {
-                        paddingTop: insets.top,
-                        paddingBottom:
-                            insets.bottom === 0 ? 16 : insets.bottom,
-                    }
-                    : edgesStyle(),
-            ]}
+            style={{
+                paddingTop: !edges || edges.includes('top') ? insets.top : undefined,
+                paddingBottom: !edges || edges.includes('bottom') ? (insets.bottom === 0 ? 16 : insets.bottom) : undefined
+            }}
         >
             {children}
-        </Box>
+        </Box >
     );
 };
 

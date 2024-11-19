@@ -5,10 +5,12 @@ import { Box, Pressable, Text } from 'src/components';
 import { Star } from 'src/icons';
 import { StoreContext } from 'src/context';
 import { observer } from 'mobx-react';
+import { MainStackParamList } from 'src/types/navigation';
 
-export default observer(function MovieDetail({ route }: { route: { params: { movieId: number } } }) {
+export default observer(function MovieDetail({ route }: { route: { params: MainStackParamList['MovieDetail'] } }) {
     const { store: RootStore } = useContext(StoreContext)
     const [movie, setMovie] = useState(RootStore.movie.getMovie(route.params.movieId));
+    const { fontFamily } = route.params
 
     if (!movie) {
         return (
@@ -27,6 +29,7 @@ export default observer(function MovieDetail({ route }: { route: { params: { mov
         <ScrollView>
             <Box flex={1} padding={8} backgroundColor="white">
                 <Text
+                    fontFamily={fontFamily}
                     fontSize={24}
                     fontWeight="bold"
                     color="#333"
