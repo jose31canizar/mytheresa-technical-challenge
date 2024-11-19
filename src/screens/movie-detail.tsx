@@ -75,12 +75,13 @@ export default observer(function MovieDetail({ route }: { route: { params: MainS
                             >
                                 <Box
                                     flexDirection="row"
+                                    alignItems="center"
                                     backgroundColor={buttonColor()}
                                     padding={16}
                                     borderRadius={16}
                                 >
-                                    <Star size={20} color="white" />
-                                    <Text color="white" marginLeft={4}>{RootStore.movie.isFavorite(movie) ? "Remove Favorite" : "Add to Favorites"}</Text>
+                                    <Star accessibilityLabel="starIcon" size={20} color="white" fillColor={RootStore.movie.isFavorite(movie) ? "white" : "transparent"} />
+                                    <Text color="white" fontFamily={fontFamily} marginLeft={4}>{RootStore.movie.isFavorite(movie) ? "Remove Favorite" : "Add to Favorites"}</Text>
                                 </Box>
                             </Pressable>
                         </Box>
@@ -90,7 +91,7 @@ export default observer(function MovieDetail({ route }: { route: { params: MainS
                 </Box>
                 <Box alignItems="center" backgroundColor="#f0f0f0" padding={8} borderRadius={8} marginBottom={8} marginTop={16}>
                     <Text fontWeight="bold" marginRight={4}>Rating: </Text>
-                    <Box backgroundColor="#007AFF" marginBottom={4} paddingVertical={4} borderRadius={4} paddingHorizontal={8}>
+                    <Box backgroundColor="#007AFF" marginBottom={4} paddingTop={4} paddingBottom={4} borderRadius={4} paddingLeft={8} paddingRight={8}>
                         <Text color="white" fontWeight="bold">{movie.vote_average}/10</Text>
                     </Box>
                 </Box>

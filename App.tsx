@@ -14,10 +14,9 @@ import { useAppState } from '@react-native-community/hooks';
 import { clearData } from 'src/utils/storage';
 import NetInfo from '@react-native-community/netinfo';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
-import { FlashBox, Box, Text, SafeAreaView } from 'src/components';
+import { FlashBox } from 'src/components';
 import { getScreenName, getStackName } from 'src/utils/navigation';
 import Reactotron from 'reactotron-react-native';
-import { storage } from 'src/store/mmk-store';
 import { MovieDetail } from 'src/screens';
 
 
@@ -40,9 +39,6 @@ const store: TRootStore = RootStore.create({
 
 function App(): React.JSX.Element {
   const routeNameRef = React.useRef<string>();
-
-  const currentAppState = useAppState();
-  const [previousAppState, setPreviousAppState] = useState(currentAppState);
 
   const initializeStores = async () => {
     try {

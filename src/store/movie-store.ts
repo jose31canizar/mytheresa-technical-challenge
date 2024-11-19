@@ -5,8 +5,8 @@ import {
   SnapshotIn,
   types,
 } from 'mobx-state-tree';
-import {storage} from './mmk-store';
 import API from 'src/api';
+import {storage} from './mmk-store';
 
 export interface MovieDTO {
   id: number;
