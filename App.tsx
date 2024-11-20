@@ -18,7 +18,9 @@ import { FlashBox } from 'src/components';
 import { getScreenName, getStackName } from 'src/utils/navigation';
 import Reactotron from 'reactotron-react-native';
 import { MovieDetail } from 'src/screens';
+import { enableScreens } from 'react-native-screens';
 
+enableScreens()
 
 LogBox.ignoreAllLogs(true)
 
@@ -42,7 +44,7 @@ function App(): React.JSX.Element {
 
   const initializeStores = async () => {
     try {
-      // await store.movie.init();
+      await store.movie.init();
     } catch (err) {
       // eslint-disable-next-line no-console
       __DEV__ && console.log(err);
